@@ -1,11 +1,17 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container,ButtonText } from './styles';
+import { RectButtonProperties } from 'react-native-gesture-handler';
+import { Rect } from 'react-native-safe-area-context';
 
-const Button: React.FC = () => {
+interface ButtonProps extends RectButtonProperties{
+  children: string;
+}
+
+const Button: React.FC<ButtonProps> = ({children, ...rest}) => {
 
   return(
-    <Container>
-
+    <Container {...rest}>
+      <ButtonText>{children}</ButtonText>
     </Container>
   )
 }
